@@ -1,0 +1,35 @@
+{
+    "name": "fisicabit-usb",
+    "version": "1.0.0",
+    "description": "Extensión micro:bit para fisicabit.com: envío de datos por USB con un solo bloque, más sensores internos y externos",
+    "license": "MIT",
+    "authors": [
+        "FisicaBit"
+    ],
+    "public": true,
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "fisicabit_datos.ts",
+        "fisicabit_usb.ts",
+        "enums.d.ts",
+        "_locales/es/fisicabit-usb-strings.json",
+        "_locales/es/fisicabit-usb-jsdoc-strings.json",
+        "_locales/en/fisicabit-usb-strings.json",
+        "_locales/en/fisicabit-usb-jsdoc-strings.json",
+        "_locales/pt-BR/fisicabit-usb-strings.json",
+        "_locales/pt-BR/fisicabit-usb-jsdoc-strings.json",
+        "tutorial-usb.md",
+        "_locales/es/tutorial-usb.md",
+        "_locales/pt-BR/tutorial-usb.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
