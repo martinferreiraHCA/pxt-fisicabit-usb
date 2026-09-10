@@ -20,7 +20,7 @@
 //% color=#5C6BC0
 //% icon="\uf287"
 //% block="FisicaBit USB"
-//% groups='["1. Send (inside forever)", "Send without time", "Internal sensors", "External sensors", "2. Optional", "Advanced"]'
+//% groups='["1. Enviar (dentro de para siempre)", "Envío de datos sin tiempo", "Sensores internos", "Sensores externos", "2. Opcional", "Avanzado"]'
 namespace FisicaBitSerial {
 
     let _m: FisicaBitDatos.Muestreador = null
@@ -65,9 +65,9 @@ namespace FisicaBitSerial {
      * @param valor Valor medido (sensor, variable o cálculo)
      * @param ms Tiempo entre muestras en ms (100 = 10 por segundo), eg: 100
      */
-    //% block="send to fisicabit.com time and %valor every %ms ms"
+    //% block="enviar a fisicabit.com tiempo y %valor cada %ms ms"
     //% blockId=fisicabit_usb_enviar_1
-    //% group="1. Send (inside forever)"
+    //% group="1. Enviar (dentro de para siempre)"
     //% weight=100
     //% ms.min=5 ms.max=60000 ms.defl=100
     //% inlineInputMode=inline
@@ -87,9 +87,9 @@ namespace FisicaBitSerial {
      * @param valor2 Segundo valor medido
      * @param ms Tiempo entre muestras en ms, eg: 100
      */
-    //% block="send to fisicabit.com time, %valor1 and %valor2 every %ms ms"
+    //% block="enviar a fisicabit.com tiempo, %valor1 y %valor2 cada %ms ms"
     //% blockId=fisicabit_usb_enviar_2
-    //% group="1. Send (inside forever)"
+    //% group="1. Enviar (dentro de para siempre)"
     //% weight=95
     //% ms.min=5 ms.max=60000 ms.defl=100
     //% inlineInputMode=inline
@@ -110,9 +110,9 @@ namespace FisicaBitSerial {
      * @param valor3 Tercer valor medido
      * @param ms Tiempo entre muestras en ms, eg: 100
      */
-    //% block="send to fisicabit.com time, %valor1 , %valor2 and %valor3 every %ms ms"
+    //% block="enviar a fisicabit.com tiempo, %valor1 , %valor2 y %valor3 cada %ms ms"
     //% blockId=fisicabit_usb_enviar_3
-    //% group="1. Send (inside forever)"
+    //% group="1. Enviar (dentro de para siempre)"
     //% weight=90
     //% ms.min=5 ms.max=60000 ms.defl=100
     //% inlineInputMode=inline
@@ -133,9 +133,9 @@ namespace FisicaBitSerial {
      * @param valor4 Cuarto valor medido
      * @param ms Tiempo entre muestras en ms, eg: 100
      */
-    //% block="send to fisicabit.com time, %valor1 , %valor2 , %valor3 and %valor4 every %ms ms"
+    //% block="enviar a fisicabit.com tiempo, %valor1 , %valor2 , %valor3 y %valor4 cada %ms ms"
     //% blockId=fisicabit_usb_enviar_4
-    //% group="1. Send (inside forever)"
+    //% group="1. Enviar (dentro de para siempre)"
     //% weight=85
     //% ms.min=5 ms.max=60000 ms.defl=100
     //% inlineInputMode=inline
@@ -159,9 +159,9 @@ namespace FisicaBitSerial {
      *
      * @param valor Valor medido
      */
-    //% block="send to fisicabit.com without time %valor"
+    //% block="enviar a fisicabit.com sin tiempo %valor"
     //% blockId=fisicabit_usb_enviar_st_1
-    //% group="Send without time"
+    //% group="Envío de datos sin tiempo"
     //% weight=83
     //% inlineInputMode=inline
     export function enviarSinTiempo1(valor: number): void {
@@ -181,9 +181,9 @@ namespace FisicaBitSerial {
      * @param valor1 Primer valor medido
      * @param valor2 Segundo valor medido
      */
-    //% block="send to fisicabit.com without time %valor1 and %valor2"
+    //% block="enviar a fisicabit.com sin tiempo %valor1 y %valor2"
     //% blockId=fisicabit_usb_enviar_st_2
-    //% group="Send without time"
+    //% group="Envío de datos sin tiempo"
     //% weight=82
     //% inlineInputMode=inline
     export function enviarSinTiempo2(valor1: number, valor2: number): void {
@@ -204,9 +204,9 @@ namespace FisicaBitSerial {
      * @param valor2 Segundo valor medido
      * @param valor3 Tercer valor medido
      */
-    //% block="send to fisicabit.com without time %valor1 , %valor2 and %valor3"
+    //% block="enviar a fisicabit.com sin tiempo %valor1 , %valor2 y %valor3"
     //% blockId=fisicabit_usb_enviar_st_3
-    //% group="Send without time"
+    //% group="Envío de datos sin tiempo"
     //% weight=81
     //% inlineInputMode=inline
     export function enviarSinTiempo3(valor1: number, valor2: number, valor3: number): void {
@@ -228,9 +228,9 @@ namespace FisicaBitSerial {
      * @param valor3 Tercer valor medido
      * @param valor4 Cuarto valor medido
      */
-    //% block="send to fisicabit.com without time %valor1 , %valor2 , %valor3 and %valor4"
+    //% block="enviar a fisicabit.com sin tiempo %valor1 , %valor2 , %valor3 y %valor4"
     //% blockId=fisicabit_usb_enviar_st_4
-    //% group="Send without time"
+    //% group="Envío de datos sin tiempo"
     //% weight=80
     //% inlineInputMode=inline
     export function enviarSinTiempo4(valor1: number, valor2: number, valor3: number, valor4: number): void {
@@ -255,9 +255,9 @@ namespace FisicaBitSerial {
      * @param sensor El tipo de sensor interno a leer (ver enum TipoSensorInterno)
      * @returns Valor numérico del sensor (la unidad depende del sensor)
      */
-    //% block="read internal sensor %sensor"
+    //% block="leer sensor interno %sensor"
     //% blockId=fisicabit_leer_sensor_interno
-    //% group="Internal sensors"
+    //% group="Sensores internos"
     //% weight=100
     //% sensor.defl=TipoSensorInterno.Temperatura
     export function leerSensorInterno(sensor: TipoSensorInterno): number {
@@ -376,9 +376,9 @@ namespace FisicaBitSerial {
      * @param pin Pin analógico donde está conectado el sensor
      * @returns Valor entre 0 y 1023 (resolución ADC de 10 bits)
      */
-    //% block="read analog sensor on %pin"
+    //% block="leer sensor analógico en %pin"
     //% blockId=fisicabit_leer_analogico
-    //% group="External sensors"
+    //% group="Sensores externos"
     //% weight=90
     //% pin.defl=PinAnalogico.P0
     export function leerSensorAnalogico(pin: PinAnalogico): number {
@@ -414,9 +414,9 @@ namespace FisicaBitSerial {
      * @param pin Número del pin digital (ej: 8 para P8, 12 para P12)
      * @returns 0 (LOW) o 1 (HIGH)
      */
-    //% block="read digital sensor on P%pin"
+    //% block="leer sensor digital en P%pin"
     //% blockId=fisicabit_leer_digital
-    //% group="External sensors"
+    //% group="Sensores externos"
     //% weight=85
     //% pin.defl=8
     export function leerSensorDigital(pin: number): number {
@@ -469,9 +469,9 @@ namespace FisicaBitSerial {
      * @param unidad Unidad de temperatura deseada
      * @returns Temperatura medida (con 1 decimal)
      */
-    //% block="NTC 10K temperature on %pin in %unidad"
+    //% block="temperatura NTC 10K en %pin en %unidad"
     //% blockId=fisicabit_ntc_10k
-    //% group="External sensors"
+    //% group="Sensores externos"
     //% weight=88
     //% pin.defl=PinAnalogico.P0
     //% unidad.defl=UnidadTemperatura.Celsius
@@ -590,9 +590,9 @@ namespace FisicaBitSerial {
      * @param unidad Unidad de medida deseada
      * @returns Distancia medida en la unidad seleccionada
      */
-    //% block="HC-SR04 distance TRIG %pinTrig ECHO %pinEcho in %unidad"
+    //% block="HC-SR04 distancia TRIG %pinTrig ECHO %pinEcho en %unidad"
     //% blockId=fisicabit_ultrasonido
-    //% group="External sensors"
+    //% group="Sensores externos"
     //% weight=70
     //% pinTrig.defl=DigitalPin.P8
     //% pinEcho.defl=DigitalPin.P12
@@ -662,9 +662,9 @@ namespace FisicaBitSerial {
      * @param ms Tiempo entre muestras en ms (20 = 50 por segundo, 10 = 100 por segundo), eg: 20
      * @param cuerpo Código a ejecutar en cada muestra
      */
-    //% block="fisicabit.com fast loop every %ms ms"
+    //% block="bucle rápido para fisicabit.com cada %ms ms"
     //% blockId=fisicabit_usb_bucle
-    //% group="2. Optional"
+    //% group="2. Opcional"
     //% weight=80
     //% ms.min=5 ms.max=60000 ms.defl=20
     //% blockAllowMultiple=0
@@ -680,9 +680,9 @@ namespace FisicaBitSerial {
      *
      * Ejemplo: [al presionar botón A] → [reiniciar tiempo USB a 0]
      */
-    //% block="reset USB time to 0"
+    //% block="reiniciar tiempo USB a 0"
     //% blockId=fisicabit_usb_reiniciar_tiempo
-    //% group="2. Optional"
+    //% group="2. Opcional"
     //% weight=75
     export function reiniciarTiempo(): void {
         _asegurar().reiniciarTiempo()
@@ -693,9 +693,9 @@ namespace FisicaBitSerial {
      * en 0). Es el mismo tiempo que viaja en cada línea. Sirve para
      * mostrarlo en la pantalla o para cálculos propios.
      */
-    //% block="USB time (ms)"
+    //% block="tiempo USB (ms)"
     //% blockId=fisicabit_serial_tiempo
-    //% group="2. Optional"
+    //% group="2. Opcional"
     //% weight=70
     export function tiempoSerial(): number {
         return _asegurar().tiempo()
@@ -712,9 +712,9 @@ namespace FisicaBitSerial {
      * usa el reloj del navegador.
      * @param activar true = enviar tiempo (por defecto), false = sólo valores
      */
-    //% block="USB send micro:bit timestamp %activar"
+    //% block="USB enviar tiempo del micro:bit %activar"
     //% blockId=fisicabit_usb_timestamp
-    //% group="Advanced"
+    //% group="Avanzado"
     //% weight=50
     //% activar.shadow=toggleOnOff
     //% activar.defl=true
@@ -727,9 +727,9 @@ namespace FisicaBitSerial {
      * Cantidad de decimales con que se envían los valores no enteros.
      * @param decimales Decimales (0 a 6). Por defecto 2.
      */
-    //% block="USB set decimals %decimales"
+    //% block="USB fijar decimales %decimales"
     //% blockId=fisicabit_usb_decimales
-    //% group="Advanced"
+    //% group="Avanzado"
     //% weight=45
     //% decimales.min=0 decimales.max=6 decimales.defl=2
     //% advanced=true
@@ -741,9 +741,9 @@ namespace FisicaBitSerial {
      * Envía una línea de texto libre por USB (sin tiempo ni espera).
      * @param texto Texto a enviar
      */
-    //% block="USB send line %texto"
+    //% block="USB enviar línea %texto"
     //% blockId=fisicabit_usb_linea
-    //% group="Advanced"
+    //% group="Avanzado"
     //% weight=40
     //% advanced=true
     export function enviarLinea(texto: string): void {

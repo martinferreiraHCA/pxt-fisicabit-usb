@@ -1,21 +1,21 @@
 // Enumeraciones de la extensión FisicaBit USB
 
 declare const enum TipoSensorInterno {
-    //% block="temperature"
+    //% block="Temperatura"
     Temperatura = 0,
-    //% block="accelerometer X"
+    //% block="Acelerómetro X"
     AcelerometroX = 1,
-    //% block="accelerometer Y"
+    //% block="Acelerómetro Y"
     AcelerometroY = 2,
-    //% block="accelerometer Z"
+    //% block="Acelerómetro Z"
     AcelerometroZ = 3,
-    //% block="light level"
+    //% block="Nivel de Luz"
     NivelLuz = 4,
-    //% block="compass (heading)"
+    //% block="Brújula (heading)"
     Brujula = 5,
-    //% block="sound level (v2)"
+    //% block="Nivel Sonido (v2)"
     NivelSonido = 6,
-    //% block="force G"
+    //% block="Fuerza G"
     FuerzaG = 7
 }
 
@@ -31,7 +31,7 @@ declare const enum UnidadTemperatura {
 declare const enum UnidadDistancia {
     //% block="cm"
     Centimetros = 0,
-    //% block="inches"
+    //% block="pulgadas"
     Pulgadas = 1,
     //% block="mm"
     Milimetros = 2

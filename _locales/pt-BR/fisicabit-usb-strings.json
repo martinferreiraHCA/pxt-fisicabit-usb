@@ -33,10 +33,10 @@
     "UnidadDistancia.Centimetros|block": "cm",
     "UnidadDistancia.Pulgadas|block": "polegadas",
     "UnidadDistancia.Milimetros|block": "mm",
-    "{id:group}1. Send (inside forever)": "1. Enviar (dentro de \"sempre\")",
-    "{id:group}Send without time": "Envio de dados sem tempo",
-    "{id:group}Internal sensors": "Sensores internos",
-    "{id:group}External sensors": "Sensores externos",
-    "{id:group}2. Optional": "2. Opcional",
-    "{id:group}Advanced": "Avançado"
+    "{id:group}1. Enviar (dentro de para siempre)": "1. Enviar (dentro de \"sempre\")",
+    "{id:group}Envío de datos sin tiempo": "Envio de dados sem tempo",
+    "{id:group}Sensores internos": "Sensores internos",
+    "{id:group}Sensores externos": "Sensores externos",
+    "{id:group}2. Opcional": "2. Opcional",
+    "{id:group}Avanzado": "Avançado"
 }

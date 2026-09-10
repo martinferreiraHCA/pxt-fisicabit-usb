@@ -10,7 +10,7 @@ En MakeCode, entrá a **Extensiones** y pegá la URL de este repositorio:
 https://github.com/martinferreiraHCA/pxt-fisicabit-usb
 ```
 
-Los bloques aparecen en el idioma del editor (español, inglés o portugués). Si la extensión ya estaba en un proyecto y ves textos viejos, quitala y volvé a agregarla: MakeCode guarda en caché la versión anterior.
+Los bloques están en **español** siempre, sin importar el idioma del editor (con el editor en portugués se traducen al portugués). Si la extensión ya estaba en un proyecto y ves textos viejos, quitala y volvé a agregarla: MakeCode guarda en caché la versión anterior.
 
 ## Secuencia mínima
 

@@ -36,10 +36,10 @@
     "PinAnalogico.P0|block": "P0",
     "PinAnalogico.P1|block": "P1",
     "PinAnalogico.P2|block": "P2",
-    "{id:group}1. Send (inside forever)": "1. Send (inside forever)",
-    "{id:group}Send without time": "Send without time",
-    "{id:group}Internal sensors": "Internal sensors",
-    "{id:group}External sensors": "External sensors",
-    "{id:group}2. Optional": "2. Optional",
-    "{id:group}Advanced": "Advanced"
+    "{id:group}1. Enviar (dentro de para siempre)": "1. Send (inside forever)",
+    "{id:group}Envío de datos sin tiempo": "Send without time",
+    "{id:group}Sensores internos": "Internal sensors",
+    "{id:group}Sensores externos": "External sensors",
+    "{id:group}2. Opcional": "2. Optional",
+    "{id:group}Avanzado": "Advanced"
 }
