@@ -41,6 +41,18 @@ basic.forever(function () {
 
 En fisicabit.com (Chrome o Edge, en Windows, macOS, Linux, ChromeOS o Android): **Bluetooth → Conectar → `BBC micro:bit [xxxxx]`**. La extensión ya fija "sin vinculación" (No Pairing Required). Si un micro:bit vinculado antes no conecta, quitalo del Bluetooth del sistema. Bluetooth y la extensión Radio no pueden convivir en un programa; USB sí funciona junto con Bluetooth.
 
+### Si conecta pero no llegan datos (celular / Android)
+
+Síntoma: fisicabit.com muestra el micro:bit como conectado, pero la tabla y la gráfica quedan vacías. Casi siempre la causa está en la configuración del proyecto o en el vínculo guardado por el teléfono. Probá en este orden:
+
+1. **Vínculo viejo en el teléfono.** En Android: Ajustes → Bluetooth → `BBC micro:bit [xxxxx]` → **Olvidar**. Reiniciá el micro:bit (botón de atrás) y volvé a conectar desde fisicabit.com.
+2. **Configuración del proyecto.** En MakeCode, **⚙ → Configuración del proyecto** tiene que estar en **No Pairing Required**. Con *JustWorks* o *Passkey* el proyecto choca con esta extensión y MakeCode muestra **"Errores de extensión"** (`conflict on yotta setting microbit-dal.bluetooth.open`); el `.hex` no queda en modo abierto y el teléfono conecta sin poder leer datos. Elegí *No Pairing Required*, volvé a **descargar el .hex** y cargalo de nuevo.
+3. **Versión de la extensión.** En **Extensiones** verificá que `fisicabit-usb` sea 1.1.1 o posterior. Si no, quitala, agregala de nuevo y descargá el `.hex` otra vez: el firmware ya cargado en la placa no se actualiza solo.
+4. **Bloques.** `iniciar Bluetooth para fisicabit.com` va dentro de `al iniciar` y `enviar a fisicabit.com por Bluetooth ...` dentro de `para siempre`.
+5. **fisicabit.com.** Elegí **Bluetooth**, poné el **número de variables** igual a la cantidad de valores del bloque (sin contar el tiempo) y dejá **"Micro:bit envía timestamp"** activado (desactivado si usás los bloques *sin tiempo*).
+6. **Navegador.** En Android sólo **Chrome** (o Edge/Samsung Internet) tiene Web Bluetooth; Firefox no, y en iPhone/iPad ninguno. La pestaña tiene que quedar visible con la pantalla encendida.
+7. **Intervalo.** Por Bluetooth usá 50 ms o más en el bloque de envío.
+
 ## Bloques de FisicaBit USB (en el orden en que aparecen)
 
 | Sección | Bloque | Descripción |
