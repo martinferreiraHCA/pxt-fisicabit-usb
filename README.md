@@ -1,6 +1,6 @@
-# FisicaBit USB — Extensión para micro:bit
+# FisicaBit USB + BT — Extensión para micro:bit
 
-> Versión reducida de [pxt-fisicabit](https://github.com/martinferreiraHCA/pxt-fisicabit): una sola categoría **FisicaBit USB** para enviar datos a [fisicabit.com](https://fisicabit.com) por el cable USB, con los sensores internos y externos del micro:bit dentro de la misma categoría. Sin Bluetooth ni módulos avanzados.
+> Versión reducida de [pxt-fisicabit](https://github.com/martinferreiraHCA/pxt-fisicabit): dos categorías, **FisicaBit USB** (envío por cable + sensores internos y externos) y **FisicaBit BT** (envío por Bluetooth), para enviar datos a [fisicabit.com](https://fisicabit.com) con un solo bloque. Sin módulos avanzados.
 
 ## Cómo usar esta extensión
 
@@ -22,7 +22,26 @@ basic.forever(function () {
 
 En fisicabit.com (Chrome o Edge): **USB → Conectar**, **Número de variables = 1**, **"Micro:bit envía timestamp" activado**, **Iniciar**.
 
-## Bloques (en el orden en que aparecen)
+## FisicaBit BT — enviar sin cable
+
+```blocks
+FisicaBitBT.inicioRapido()
+basic.forever(function () {
+    FisicaBitBT.enviar1(FisicaBitSerial.leerSensorInterno(TipoSensorInterno.AcelerometroX), 100)
+})
+```
+
+| Sección | Bloque | Descripción |
+|---------|--------|-------------|
+| 1. Iniciar (en al iniciar) | `iniciar Bluetooth para fisicabit.com` | **Primero** en `al iniciar`: diana ◎ esperando, corazón ♥ conectado |
+| 2. Enviar (dentro de para siempre) | `enviar a fisicabit.com por Bluetooth tiempo y [valor] cada [100] ms` | Igual que USB; sólo transmite mientras hay conexión. Por Bluetooth, 50 ms o más |
+| Envío de datos sin tiempo | `enviar a fisicabit.com por Bluetooth sin tiempo [valor]` | Sólo los valores, sin tiempo ni espera |
+| 3. Opcional | `¿Bluetooth conectado?`, `al conectar / al desconectar`, `reiniciar tiempo Bluetooth a 0`, `tiempo Bluetooth (ms)`, `bucle rápido`, `mostrar íconos de conexión` | Estado de la conexión y control del tiempo |
+| Avanzado | `enviar tiempo del micro:bit`, `fijar decimales`, `enviar texto`, `iniciar con todos los servicios BLE` | Sólo si hace falta |
+
+En fisicabit.com (Chrome o Edge, en Windows, macOS, Linux, ChromeOS o Android): **Bluetooth → Conectar → `BBC micro:bit [xxxxx]`**. La extensión ya fija "sin vinculación" (No Pairing Required). Si un micro:bit vinculado antes no conecta, quitalo del Bluetooth del sistema. Bluetooth y la extensión Radio no pueden convivir en un programa; USB sí funciona junto con Bluetooth.
+
+## Bloques de FisicaBit USB (en el orden en que aparecen)
 
 | Sección | Bloque | Descripción |
 |---------|--------|-------------|
@@ -54,10 +73,11 @@ HC-SR04:           TRIG → P8, ECHO → P12, VCC → 3V (o 5V), GND → GND
 
 ## Compatibilidad
 
-| Plataforma | Navegador | USB (Web Serial) |
-|------------|-----------|------------------|
-| Windows / macOS / Linux / ChromeOS | Chrome, Edge | Sí |
-| Android, iOS / iPadOS | — | No |
+| Plataforma | Navegador | USB (Web Serial) | Bluetooth (Web Bluetooth) |
+|------------|-----------|------------------|---------------------------|
+| Windows / macOS / Linux / ChromeOS | Chrome, Edge | Sí | Sí |
+| Android | Chrome | No | Sí |
+| iOS / iPadOS | — | No | No |
 
 ## Licencia
 

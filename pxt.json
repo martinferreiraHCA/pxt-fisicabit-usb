@@ -1,19 +1,21 @@
 {
     "name": "fisicabit-usb",
-    "version": "1.0.0",
-    "description": "Extensión micro:bit para fisicabit.com: envío de datos por USB con un solo bloque, más sensores internos y externos",
+    "version": "1.1.0",
+    "description": "Extensión micro:bit para fisicabit.com: envío de datos por USB o Bluetooth con un solo bloque, más sensores internos y externos",
     "license": "MIT",
     "authors": [
         "FisicaBit"
     ],
     "public": true,
     "dependencies": {
-        "core": "*"
+        "core": "*",
+        "bluetooth": "*"
     },
     "files": [
         "README.md",
         "fisicabit_datos.ts",
         "fisicabit_usb.ts",
+        "fisicabit_bt.ts",
         "enums.d.ts",
         "_locales/es/fisicabit-usb-strings.json",
         "_locales/es/fisicabit-usb-jsdoc-strings.json",
@@ -31,5 +33,17 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "yotta": {
+        "config": {
+            "microbit-dal": {
+                "bluetooth": {
+                    "open": 1,
+                    "pairing_mode": 0,
+                    "whitelist": 0,
+                    "security_level": null
+                }
+            }
+        }
+    }
 }
