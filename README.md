@@ -57,7 +57,7 @@ Síntoma: fisicabit.com muestra el micro:bit como conectado, pero la tabla y la 
 
 | Sección | Bloque | Descripción |
 |---------|--------|-------------|
-| 1. Enviar (dentro de "para siempre") | `enviar a fisicabit.com tiempo y [valor] cada [100] ms` | Toma el tiempo del micro:bit (desde 0), envía `tiempo,valor` y espera hasta la próxima muestra. Variantes de 2, 3 y 4 valores. 100 ms = 10 muestras por segundo |
+| 1. Enviar (dentro de "para siempre") | `enviar a fisicabit.com tiempo y [valor] cada [100] ms` | Toma el tiempo del micro:bit (desde 0), envía `tiempo,valor` y espera hasta la próxima muestra. Variantes de 2 y 3 valores (fisicabit.com admite hasta 3 variables). 100 ms = 10 muestras por segundo |
 | Envío de datos sin tiempo | `enviar a fisicabit.com sin tiempo [valor]` | Sólo los valores, sin tiempo y sin espera: al apretar un botón, en un evento o en `para siempre` con tu propia pausa. En la página, desactivar "Micro:bit envía timestamp" |
 | Sensores internos | `leer sensor interno [temperatura]` | Temperatura, acelerómetro X/Y/Z, nivel de luz, brújula, nivel de sonido (v2), fuerza G |
 | Sensores externos | `leer sensor analógico en [P0]` | Potenciómetro, LDR, etc. (0 a 1023) |

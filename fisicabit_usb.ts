@@ -121,6 +121,10 @@ namespace FisicaBitSerial {
     }
 
     /**
+     * OBSOLETO: fisicabit.com admite hasta 3 variables y descarta las líneas
+     * de 4 valores. Usá el bloque de 3 valores. Se mantiene sólo para que los
+     * programas viejos sigan compilando (oculto en la caja de bloques).
+     *
      * Envía a fisicabit.com el tiempo (ms) y cuatro valores medidos, y espera
      * hasta la próxima muestra. Colocar dentro de "para siempre".
      * Línea enviada: tiempo,valor1,valor2,valor3,valor4
@@ -135,6 +139,7 @@ namespace FisicaBitSerial {
      */
     //% block="enviar a fisicabit.com tiempo, %valor1 , %valor2 , %valor3 y %valor4 cada %ms ms"
     //% blockId=fisicabit_usb_enviar_4
+    //% deprecated=true
     //% group="1. Enviar (dentro de para siempre)"
     //% weight=85
     //% ms.min=5 ms.max=60000 ms.defl=100
@@ -214,6 +219,10 @@ namespace FisicaBitSerial {
     }
 
     /**
+     * OBSOLETO: fisicabit.com admite hasta 3 variables y descarta las líneas
+     * de 4 valores. Usá el bloque de 3 valores. Se mantiene sólo para que los
+     * programas viejos sigan compilando (oculto en la caja de bloques).
+     *
      * Envía a fisicabit.com por USB SOLO cuatro valores medidos, sin el tiempo del
      * micro:bit y sin esperar: se manda en el momento en que se ejecuta el
      * bloque. Usalo al presionar un botón, en cualquier evento, o dentro de
@@ -230,6 +239,7 @@ namespace FisicaBitSerial {
      */
     //% block="enviar a fisicabit.com sin tiempo %valor1 , %valor2 , %valor3 y %valor4"
     //% blockId=fisicabit_usb_enviar_st_4
+    //% deprecated=true
     //% group="Envío de datos sin tiempo"
     //% weight=80
     //% inlineInputMode=inline
@@ -734,7 +744,12 @@ namespace FisicaBitSerial {
     //% decimales.min=0 decimales.max=6 decimales.defl=2
     //% advanced=true
     export function fijarDecimales(decimales: number): void {
-        _asegurar().decimales = Math.round(decimales)
+        // A prueba de valores fuera de rango o no numéricos (NaN → 2, tope 0..6)
+        let d = Math.round(decimales)
+        if (d !== d) d = 2
+        if (d < 0) d = 0
+        if (d > 6) d = 6
+        _asegurar().decimales = d
     }
 
     /**
