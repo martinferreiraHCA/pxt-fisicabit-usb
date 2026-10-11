@@ -1,6 +1,6 @@
-# FisicaBit USB + BT — Extensión para micro:bit
+# FisicaBit USB — Extensión para micro:bit
 
-> Versión reducida de [pxt-fisicabit](https://github.com/martinferreiraHCA/pxt-fisicabit): dos categorías, **FisicaBit USB** (envío por cable + sensores internos y externos) y **FisicaBit BT** (envío por Bluetooth), para enviar datos a [fisicabit.com](https://fisicabit.com) con un solo bloque. Sin módulos avanzados.
+> Versión reducida de [pxt-fisicabit](https://github.com/martinferreiraHCA/pxt-fisicabit): una categoría, **FisicaBit USB** (envío por cable + sensores internos y externos). **No depende de Bluetooth**, así que se agrega a cualquier proyecto sin tocar Radio. Para enviar sin cable está [FisicaBit BT](https://github.com/martinferreiraHCA/pxt-fisicabit-usb/tree/bluetooth) (ver abajo).
 
 ## Cómo usar esta extensión
 
@@ -22,36 +22,14 @@ basic.forever(function () {
 
 En fisicabit.com (Chrome o Edge): **USB → Conectar**, **Número de variables = 1**, **"Micro:bit envía timestamp" activado**, **Iniciar**.
 
-## FisicaBit BT — enviar sin cable
+## ¿Y Bluetooth?
 
-```blocks
-FisicaBitBT.inicioRapido()
-basic.forever(function () {
-    FisicaBitBT.enviar1(FisicaBitSerial.leerSensorInterno(TipoSensorInterno.AcelerometroX), 100)
-})
-```
+MakeCode no permite Radio y Bluetooth en el mismo programa, y todo proyecto nuevo trae Radio. Para no obligar a elegir, los bloques Bluetooth están en una extensión aparte, **FisicaBit BT**, que se activa a propósito:
 
-| Sección | Bloque | Descripción |
-|---------|--------|-------------|
-| 1. Iniciar (en al iniciar) | `iniciar Bluetooth para fisicabit.com` | **Primero** en `al iniciar`: diana ◎ esperando, corazón ♥ conectado |
-| 2. Enviar (dentro de para siempre) | `enviar a fisicabit.com por Bluetooth tiempo y [valor] cada [100] ms` | Igual que USB; sólo transmite mientras hay conexión. Por Bluetooth, 50 ms o más |
-| Envío de datos sin tiempo | `enviar a fisicabit.com por Bluetooth sin tiempo [valor]` | Sólo los valores, sin tiempo ni espera |
-| 3. Opcional | `¿Bluetooth conectado?`, `al conectar / al desconectar`, `reiniciar tiempo Bluetooth a 0`, `tiempo Bluetooth (ms)`, `bucle rápido`, `mostrar íconos de conexión` | Estado de la conexión y control del tiempo |
-| Avanzado | `enviar tiempo del micro:bit`, `fijar decimales`, `enviar texto`, `iniciar con todos los servicios BLE` | Sólo si hace falta |
+- En [fisicabit.com](https://fisicabit.com) → **EXTRAS → MAKECODE + FISICABIT**, barra **FisicaBit** → botón **Bluetooth** (diálogo guiado: quita Radio y agrega la categoría; permite volver a Radio).
+- A mano: Extensiones → `https://github.com/martinferreiraHCA/pxt-fisicabit-usb#bluetooth` y, si MakeCode pregunta, **Eliminar radio**.
 
-En fisicabit.com (Chrome o Edge, en Windows, macOS, Linux, ChromeOS o Android): **Bluetooth → Conectar → `BBC micro:bit [xxxxx]`**. La extensión ya fija "sin vinculación" (No Pairing Required). Si un micro:bit vinculado antes no conecta, quitalo del Bluetooth del sistema. Bluetooth y la extensión Radio no pueden convivir en un programa; USB sí funciona junto con Bluetooth.
-
-### Si conecta pero no llegan datos (celular / Android)
-
-Síntoma: fisicabit.com muestra el micro:bit como conectado, pero la tabla y la gráfica quedan vacías. Casi siempre la causa está en la configuración del proyecto o en el vínculo guardado por el teléfono. Probá en este orden:
-
-1. **Vínculo viejo en el teléfono.** En Android: Ajustes → Bluetooth → `BBC micro:bit [xxxxx]` → **Olvidar**. Reiniciá el micro:bit (botón de atrás) y volvé a conectar desde fisicabit.com.
-2. **Configuración del proyecto.** En MakeCode, **⚙ → Configuración del proyecto** tiene que estar en **No Pairing Required**. Si el proyecto está en *JustWorks* o *Passkey*, esa elección gana sobre la de la extensión: el `.hex` exige vinculación y el teléfono conecta pero no lee datos. (Con la versión 1.1.0 y 1.1.1 esta combinación además producía **"Errores de extensión"** y la categoría quedaba vacía; desde la 1.1.2 ya no.) Elegí *No Pairing Required*, volvé a **descargar el .hex** y cargalo de nuevo.
-3. **Versión de la extensión.** En **Extensiones** verificá que `fisicabit-usb` sea 1.1.2 o posterior. Si no, quitala, agregala de nuevo y descargá el `.hex` otra vez: el firmware ya cargado en la placa no se actualiza solo.
-4. **Bloques.** `iniciar Bluetooth para fisicabit.com` va dentro de `al iniciar` y `enviar a fisicabit.com por Bluetooth ...` dentro de `para siempre`.
-5. **fisicabit.com.** Elegí **Bluetooth**, poné el **número de variables** igual a la cantidad de valores del bloque (sin contar el tiempo) y dejá **"Micro:bit envía timestamp"** activado (desactivado si usás los bloques *sin tiempo*).
-6. **Navegador.** En Android sólo **Chrome** (o Edge/Samsung Internet) tiene Web Bluetooth; Firefox no, y en iPhone/iPad ninguno. La pestaña tiene que quedar visible con la pantalla encendida.
-7. **Intervalo.** Por Bluetooth usá 50 ms o más en el bloque de envío.
+Documentación de los bloques Bluetooth: [README de la rama bluetooth](https://github.com/martinferreiraHCA/pxt-fisicabit-usb/tree/bluetooth#readme).
 
 ## Bloques de FisicaBit USB (en el orden en que aparecen)
 
