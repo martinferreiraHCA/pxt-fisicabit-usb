@@ -43,10 +43,10 @@
 //
 //  LIMITACIONES CONOCIDAS:
 //    • Bluetooth y Radio no pueden usarse en el mismo programa (MakeCode no
-//      permite las dos extensiones juntas). Por eso esta categoría vive en una
-//      extensión aparte (fisicabit-bt): el proyecto conserva Radio hasta que
-//      el usuario decide activar Bluetooth (en fisicabit.com, botón Bluetooth
-//      de la barra FisicaBit del editor integrado).
+//      permite las dos extensiones juntas). Por eso este paquete (fisicabit-bt,
+//      rama "bluetooth") es la variante CON Bluetooth de FisicaBit USB: trae las
+//      dos categorías y reemplaza a fisicabit-usb cuando el usuario activa
+//      Bluetooth (en fisicabit.com, botón Bluetooth de la barra FisicaBit).
 //    • iOS/iPadOS no soporta Web Bluetooth (usar Android, Windows, macOS,
 //      Linux o ChromeOS con Chrome/Edge).
 //    • Velocidad práctica por BLE: hasta ~20 Hz. Para 50-100 Hz usar USB.
@@ -59,7 +59,7 @@
 //% groups='["1. Iniciar (en al iniciar)", "2. Enviar (dentro de para siempre)", "Envío de datos sin tiempo", "3. Opcional", "Avanzado"]'
 namespace FisicaBitBT {
 
-    let _m: FisicaBitBTDatos.Muestreador = null
+    let _m: FisicaBitDatos.Muestreador = null
     let _uartIniciado = false
     let _conectado = false
     let _mostrarIconos = true
@@ -71,8 +71,8 @@ namespace FisicaBitBT {
     let _alConectarUsuario: () => void = null
     let _alDesconectarUsuario: () => void = null
 
-    function _asegurarUART(): FisicaBitBTDatos.Muestreador {
-        if (!_m) _m = new FisicaBitBTDatos.Muestreador()
+    function _asegurarUART(): FisicaBitDatos.Muestreador {
+        if (!_m) _m = new FisicaBitDatos.Muestreador()
         if (!_uartIniciado) {
             _uartIniciado = true
             bluetooth.startUartService()

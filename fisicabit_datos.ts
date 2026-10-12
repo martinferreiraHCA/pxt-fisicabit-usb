@@ -1,12 +1,9 @@
 // =============================================================================
-//  fisicabit_bt_datos.ts — Núcleo de muestreo y formato de datos (copia para BT)
+//  fisicabit_datos.ts — Núcleo compartido de muestreo y formato de datos
 // =============================================================================
 //  Proyecto: FisicaBit.com
-//  Descripción: Lógica de apoyo de "FisicaBit BT" (fisicabit_bt.ts). Es una
-//               copia de fisicabit_datos.ts de la extensión FisicaBit USB con
-//               otro nombre de namespace (FisicaBitBTDatos) para que las dos
-//               extensiones puedan convivir en el mismo proyecto sin
-//               declaraciones duplicadas.
+//  Descripción: Lógica común usada por "FisicaBit USB" (serial_sensores.ts)
+//               y "FisicaBit Bluetooth" (bluetooth_sensores.ts):
 //
 //    • Formato de números compacto (ASCII, pocos decimales) → líneas cortas.
 //      Por Bluetooth cada paquete UART BLE lleva 20 bytes como máximo, así
@@ -23,7 +20,7 @@
 //  Este archivo NO define bloques; sólo código de apoyo.
 // =============================================================================
 
-namespace FisicaBitBTDatos {
+namespace FisicaBitDatos {
 
     export const PERIODO_MIN_MS = 5
     export const PERIODO_MAX_MS = 60000

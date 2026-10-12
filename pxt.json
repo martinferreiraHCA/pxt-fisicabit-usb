@@ -1,7 +1,7 @@
 {
     "name": "fisicabit-bt",
-    "version": "1.0.0",
-    "description": "Extensión micro:bit para fisicabit.com: envío de datos por Bluetooth con un solo bloque (categoría FisicaBit BT). Complemento de fisicabit-usb; incompatible con Radio.",
+    "version": "1.2.0",
+    "description": "FisicaBit con Bluetooth: las categorías FisicaBit USB y FisicaBit BT para enviar datos a fisicabit.com por cable o sin cable. Reemplaza a fisicabit-usb cuando se activa Bluetooth (incompatible con Radio).",
     "license": "MIT",
     "authors": [
         "FisicaBit"
@@ -9,20 +9,26 @@
     "public": true,
     "dependencies": {
         "core": "*",
-        "bluetooth": "*"
+        "bluetooth": "*",
+        "microphone": "*"
     },
     "files": [
         "README.md",
-        "fisicabit_bt_datos.ts",
+        "fisicabit_datos.ts",
+        "fisicabit_usb.ts",
         "fisicabit_bt.ts",
+        "enums.d.ts",
         "_locales/es/fisicabit-bt-strings.json",
         "_locales/es/fisicabit-bt-jsdoc-strings.json",
         "_locales/en/fisicabit-bt-strings.json",
         "_locales/en/fisicabit-bt-jsdoc-strings.json",
         "_locales/pt-BR/fisicabit-bt-strings.json",
         "_locales/pt-BR/fisicabit-bt-jsdoc-strings.json",
+        "tutorial-usb.md",
         "tutorial-bluetooth.md",
+        "_locales/es/tutorial-usb.md",
         "_locales/es/tutorial-bluetooth.md",
+        "_locales/pt-BR/tutorial-usb.md",
         "_locales/pt-BR/tutorial-bluetooth.md"
     ],
     "testFiles": [

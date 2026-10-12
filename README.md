@@ -1,17 +1,17 @@
 # FisicaBit BT — Extensión para micro:bit (Bluetooth)
 
-> Categoría **FisicaBit BT**: enviar datos a [fisicabit.com](https://fisicabit.com) por Bluetooth con un solo bloque. Es el complemento de [FisicaBit USB](https://github.com/martinferreiraHCA/pxt-fisicabit-usb) (rama `main` de este mismo repositorio) y vive en la rama `bluetooth`.
+> La variante **con Bluetooth** de [FisicaBit USB](https://github.com/martinferreiraHCA/pxt-fisicabit-usb): trae las dos categorías, **FisicaBit USB** (cable + sensores) y **FisicaBit BT** (sin cable). Vive en la rama `bluetooth` de ese mismo repositorio y **reemplaza** a `fisicabit-usb` en el proyecto cuando se activa Bluetooth (MakeCode no admite dos dependencias del mismo repositorio).
 
 ## Por qué está separada de FisicaBit USB
 
 MakeCode **no permite usar Radio y Bluetooth en el mismo programa** (las dos extensiones fijan ajustes incompatibles). Todo proyecto nuevo trae Radio. Si FisicaBit USB incluyera Bluetooth, al agregarla aparecería el diálogo "Las extensiones no se pueden usar juntas" y habría que elegir qué borrar. Por eso:
 
-- **FisicaBit USB** no depende de Bluetooth: se agrega a cualquier proyecto sin tocar Radio.
-- **FisicaBit BT** (esta extensión) sí depende de Bluetooth y se activa a propósito, cuando se quiere enviar sin cable.
+- **FisicaBit USB** (`main`) no depende de Bluetooth: se agrega a cualquier proyecto sin tocar Radio.
+- **FisicaBit BT** (esta rama) sí depende de Bluetooth y se activa a propósito, cuando se quiere enviar sin cable. Incluye también los bloques de FisicaBit USB, así que al activarla el programa no pierde nada.
 
 ## Cómo activarla
 
-**Camino fácil (recomendado):** en [fisicabit.com](https://fisicabit.com) → **EXTRAS → MAKECODE + FISICABIT**, en la barra **FisicaBit** del editor tocá **Bluetooth**. Un diálogo guiado quita Radio de la práctica y agrega esta categoría. El mismo botón permite **volver a Radio**.
+**Camino fácil (recomendado):** en [fisicabit.com](https://fisicabit.com) → **EXTRAS → MAKECODE + FISICABIT**, en la barra **FisicaBit** del editor tocá **Bluetooth**. Un diálogo guiado quita Radio de la práctica y cambia FisicaBit USB por esta extensión (que trae USB + BT). El mismo botón permite **volver a Radio**.
 
 **A mano, en makecode.microbit.org:** Extensiones → pegá
 
@@ -19,7 +19,7 @@ MakeCode **no permite usar Radio y Bluetooth en el mismo programa** (las dos ext
 https://github.com/martinferreiraHCA/pxt-fisicabit-usb#bluetooth
 ```
 
-Si el proyecto tiene Radio, MakeCode va a preguntar qué quitar: elegí **Eliminar radio**.
+Si el proyecto tiene Radio, MakeCode va a preguntar qué quitar: elegí **Eliminar radio**. Si ya tenía `fisicabit-usb`, quitala antes (Extensiones → tachito): las dos no pueden convivir porque son el mismo repositorio.
 
 ## Secuencia mínima
 
