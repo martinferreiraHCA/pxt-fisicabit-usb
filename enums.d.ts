@@ -34,7 +34,21 @@ declare const enum UnidadDistancia {
     //% block="pulgadas"
     Pulgadas = 1,
     //% block="mm"
-    Milimetros = 2
+    Milimetros = 2,
+    //% block="m"
+    Metros = 3
+}
+
+/** Intensidad del filtro de mediana para el ultrasonido (valor = tamaño de la ventana). */
+declare const enum FiltroUltrasonido {
+    //% block="ninguno (1 lectura)"
+    Ninguno = 1,
+    //% block="suave (mediana de 3)"
+    Suave = 3,
+    //% block="medio (mediana de 5)"
+    Medio = 5,
+    //% block="fuerte (mediana de 7)"
+    Fuerte = 7
 }
 
 declare const enum PinAnalogico {

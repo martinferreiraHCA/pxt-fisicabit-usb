@@ -6,7 +6,8 @@
 //    1. Envío a fisicabit.com por USB (tiempo + valores, un solo bloque)
 //    2. Envío sin tiempo (sólo valores, sin espera)
 //    3. Sensores internos del micro:bit
-//    4. Sensores externos (analógico, digital, NTC 10K, HC-SR04)
+//    4. Sensores externos (analógico, digital, NTC 10K)
+//    5. Ultrasonido HC-SR04 / HY-SRF05 (fisicabit_ultrasonido.ts)
 //
 //  SECUENCIA MÍNIMA:
 //    por siempre:
@@ -20,13 +21,13 @@
 //% color=#5C6BC0
 //% icon="\uf287"
 //% block="FisicaBit USB"
-//% groups='["1. Enviar (dentro de para siempre)", "Envío de datos sin tiempo", "Sensores internos", "Sensores externos", "2. Opcional", "Avanzado"]'
+//% groups='["1. Enviar (dentro de para siempre)", "Envío de datos sin tiempo", "Sensores internos", "Sensores externos", "Ultrasonido (HC-SR04 / HY-SRF05)", "2. Opcional", "Avanzado"]'
 namespace FisicaBitSerial {
 
     let _m: FisicaBitDatos.Muestreador = null
     let _iniciado = false
 
-    function _asegurar(): FisicaBitDatos.Muestreador {
+    export function _asegurar(): FisicaBitDatos.Muestreador {
         if (!_m) _m = new FisicaBitDatos.Muestreador()
         if (!_iniciado) {
             _iniciado = true
@@ -520,141 +521,6 @@ namespace FisicaBitSerial {
     }
 
 
-
-    // ── HC-SR04 (ultrasónico) ────────────────────────────────────────────────
-    let _usUltimoValido = 0     // Último valor válido (respaldo si falla la lectura)
-
-    function _usLecturaCrudaMm(pinTrig: DigitalPin, pinEcho: DigitalPin): number {
-        pins.digitalWritePin(pinTrig, 0)
-        control.waitMicros(2)
-        pins.digitalWritePin(pinTrig, 1)
-        control.waitMicros(10)
-        pins.digitalWritePin(pinTrig, 0)
-
-        let duracion = pins.pulseIn(pinEcho, PulseValue.High, 25000)
-
-        if (duracion <= 0) return -1
-
-        let distMm = Math.idiv(duracion * 343, 2000)
-
-        if (distMm < 20 || distMm > 4000) return -1
-
-
-        return distMm
-    }
-
-    /**
-     * Insertion sort para arrays pequeños (eficiente para N ≤ 7).
-     */
-    function _usOrdenar(arr: number[], len: number): void {
-        for (let i = 1; i < len; i++) {
-            let clave = arr[i]
-            let j = i - 1
-            while (j >= 0 && arr[j] > clave) {
-                arr[j + 1] = arr[j]
-                j--
-            }
-            arr[j + 1] = clave
-        }
-    }
-
-    /**
-     * Convierte una distancia en mm a la unidad solicitada.
-     */
-    function _usConvertir(mm: number, unidad: UnidadDistancia): number {
-        switch (unidad) {
-            case UnidadDistancia.Milimetros:
-                return mm
-            case UnidadDistancia.Centimetros:
-                return Math.idiv(mm, 10)
-            case UnidadDistancia.Pulgadas:
-                return Math.idiv(mm * 10, 254)
-            default:
-                return Math.idiv(mm, 10)
-        }
-    }
-
-    /**
-     * Configura el filtro del sensor ultrasónico.
-     *
-     * Para MRU/MRUV: filtro "suave" (mediana de 3) da buen equilibrio.
-     * Para caída libre: filtro "ninguno" si necesitas máxima frecuencia.
-     *
-     * @param filtro Intensidad del filtro (más muestras = más suave pero más lento)
-
-    /**
-     * Mide la distancia con un sensor ultrasónico HC-SR04 (2 a 400 cm).
-     * Usa la mediana de 3 lecturas para eliminar picos espurios (~12 Hz máx.).
-     *
-     * Ejemplo: [enviar a fisicabit.com tiempo y (HC-SR04 distancia TRIG P8 ECHO P12 en cm) cada (100) ms]
-     *   → posición de un carrito o un péndulo en función del tiempo.
-     *
-     * Conexión física HC-SR04 → micro:bit:
-     *   VCC  → 3V (o 5V según módulo)
-     *   GND  → GND
-     *   TRIG → P8
-     *   ECHO → P12
-     *
-     * @param pinTrig Pin conectado a TRIG (disparo)
-     * @param pinEcho Pin conectado a ECHO (respuesta)
-     * @param unidad Unidad de medida deseada
-     * @returns Distancia medida en la unidad seleccionada
-     */
-    //% block="HC-SR04 distancia TRIG %pinTrig ECHO %pinEcho en %unidad"
-    //% blockId=fisicabit_ultrasonido
-    //% group="Sensores externos"
-    //% weight=70
-    //% pinTrig.defl=DigitalPin.P8
-    //% pinEcho.defl=DigitalPin.P12
-    //% unidad.defl=UnidadDistancia.Centimetros
-    export function medirDistanciaUltrasonido(
-        pinTrig: DigitalPin,
-        pinEcho: DigitalPin,
-        unidad: UnidadDistancia
-    ): number {
-        let n = 3   // mediana de 3 lecturas: buen equilibrio entre ruido y velocidad
-
-        if (n <= 1) {
-            let mm = _usLecturaCrudaMm(pinTrig, pinEcho)
-            if (mm > 0) {
-                _usUltimoValido = mm
-                return _usConvertir(mm, unidad)
-            }
-            return _usConvertir(_usUltimoValido, unidad)
-        }
-
-        let lecturas: number[] = []
-        let validas = 0
-
-        for (let i = 0; i < n; i++) {
-            let mm = _usLecturaCrudaMm(pinTrig, pinEcho)
-            if (mm > 0) {
-                lecturas.push(mm)
-                validas++
-            }
-            if (i < n - 1) {
-                control.waitMicros(2500)
-            }
-        }
-
-        if (validas === 0) {
-            return _usConvertir(_usUltimoValido, unidad)
-        }
-
-        _usOrdenar(lecturas, validas)
-        let medianaMm = lecturas[Math.idiv(validas, 2)]
-
-        _usUltimoValido = medianaMm
-        return _usConvertir(medianaMm, unidad)
-    }
-
-    /**
-     * Mide la distancia con el HC-SR04 sin ningún filtro.
-     * Máxima velocidad de muestreo (~40 Hz).
-     *
-     * @param pinTrig Pin conectado a TRIG (disparo)
-     * @param pinEcho Pin conectado a ECHO (respuesta)
-     * @param unidad Unidad de medida deseada
 
     // =========================================================================
     // PASO 2: OPCIONAL — velocidad alta y control del tiempo
