@@ -1,6 +1,6 @@
 {
     "name": "fisicabit-usb",
-    "version": "1.2.1",
+    "version": "1.2.2",
     "description": "micro:bit (V2) only. FisicaBit for fisicabit.com: sensors, photogates, precision accelerometer, ultrasonic and ToF distance, data streaming over USB (Bluetooth: fisicabit-bt)",
     "license": "MIT",
     "authors": [
@@ -43,7 +43,9 @@
         "pxtparts.json",
         "parts/hcsr04.svg",
         "parts/hysrf05.svg",
-        "parts/tof.svg"
+        "parts/tof.svg",
+        "compat-enums.d.ts",
+        "compat.ts"
     ],
     "testFiles": [
         "test.ts"
