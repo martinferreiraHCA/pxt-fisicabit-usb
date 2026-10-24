@@ -1,0 +1,170 @@
+{
+    "hcsr04": {
+        "visual": {
+            "image": "parts/hcsr04.svg",
+            "width": 280,
+            "height": 160,
+            "pinDistance": 20,
+            "pinLocations": [
+                {
+                    "x": 110.0,
+                    "y": 159
+                },
+                {
+                    "x": 130.0,
+                    "y": 159
+                },
+                {
+                    "x": 150.0,
+                    "y": 159
+                },
+                {
+                    "x": 170.0,
+                    "y": 159
+                }
+            ]
+        },
+        "numberOfPins": 4,
+        "pinDefinitions": [
+            {
+                "target": "threeVolt",
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": {
+                    "pinInstantiationIdx": 0
+                },
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": {
+                    "pinInstantiationIdx": 1
+                },
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": "ground",
+                "style": "male",
+                "orientation": "-Z"
+            }
+        ],
+        "instantiations": [
+            {
+                "kind": "function",
+                "fullyQualifiedName": "FisicaBitSerial.medirDistanciaUltrasonido,FisicaBitSerial.medirDistanciaUltrasonidoCruda,FisicaBitSerial.enviarDistanciaUltrasonido,FisicaBitSerial.calibrarUltrasonido,FisicaBitSerial.frecuenciaRealUltrasonido,FisicaBitSerial.tiempoUltimoEcoUltrasonido,FisicaBitSerial.estadoUltrasonido",
+                "argumentRoles": [
+                    {
+                        "pinInstantiationIdx": 0,
+                        "partParameter": "pinTrig"
+                    },
+                    {
+                        "pinInstantiationIdx": 1,
+                        "partParameter": "pinEcho"
+                    }
+                ]
+            }
+        ],
+        "assembly": [
+            {
+                "part": true,
+                "pinIndices": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "pinIndices": [
+                    1,
+                    2
+                ]
+            }
+        ]
+    },
+    "hysrf05": {
+        "visual": {
+            "image": "parts/hysrf05.svg",
+            "width": 280,
+            "height": 160,
+            "pinDistance": 20,
+            "pinLocations": [
+                {
+                    "x": 100.0,
+                    "y": 159
+                },
+                {
+                    "x": 120.0,
+                    "y": 159
+                },
+                {
+                    "x": 140.0,
+                    "y": 159
+                },
+                {
+                    "x": 180.0,
+                    "y": 159
+                }
+            ]
+        },
+        "numberOfPins": 4,
+        "pinDefinitions": [
+            {
+                "target": "threeVolt",
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": {
+                    "pinInstantiationIdx": 0
+                },
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": {
+                    "pinInstantiationIdx": 1
+                },
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": "ground",
+                "style": "male",
+                "orientation": "-Z"
+            }
+        ],
+        "instantiations": [
+            {
+                "kind": "function",
+                "fullyQualifiedName": "FisicaBitSerial.medirDistanciaSRF05,FisicaBitSerial.enviarDistanciaSRF05",
+                "argumentRoles": [
+                    {
+                        "pinInstantiationIdx": 0,
+                        "partParameter": "pinTrig"
+                    },
+                    {
+                        "pinInstantiationIdx": 1,
+                        "partParameter": "pinEcho"
+                    }
+                ]
+            }
+        ],
+        "assembly": [
+            {
+                "part": true,
+                "pinIndices": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "pinIndices": [
+                    1,
+                    2
+                ]
+            }
+        ]
+    }
+}
