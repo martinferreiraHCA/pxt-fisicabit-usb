@@ -54,15 +54,15 @@
         "instantiations": [
             {
                 "kind": "function",
-                "fullyQualifiedName": "FisicaBitSerial.medirDistanciaUltrasonido,FisicaBitSerial.medirDistanciaUltrasonidoCruda,FisicaBitSerial.enviarDistanciaUltrasonido,FisicaBitSerial.calibrarUltrasonido,FisicaBitSerial.frecuenciaRealUltrasonido,FisicaBitSerial.tiempoUltimoEcoUltrasonido,FisicaBitSerial.estadoUltrasonido",
+                "fullyQualifiedName": "fisicabitUltrasonic.distance,fisicabitUltrasonic.rawDistance,fisicabitUltrasonic.sendDistance,fisicabitUltrasonic.calibrate,fisicabitUltrasonic.actualSampleRate,fisicabitUltrasonic.lastEchoTime,fisicabitUltrasonic.status",
                 "argumentRoles": [
                     {
                         "pinInstantiationIdx": 0,
-                        "partParameter": "pinTrig"
+                        "partParameter": "trigPin"
                     },
                     {
                         "pinInstantiationIdx": 1,
-                        "partParameter": "pinEcho"
+                        "partParameter": "echoPin"
                     }
                 ]
             }
@@ -138,15 +138,15 @@
         "instantiations": [
             {
                 "kind": "function",
-                "fullyQualifiedName": "FisicaBitSerial.medirDistanciaSRF05,FisicaBitSerial.enviarDistanciaSRF05",
+                "fullyQualifiedName": "fisicabitUltrasonic.distanceSRF05,fisicabitUltrasonic.sendDistanceSRF05",
                 "argumentRoles": [
                     {
                         "pinInstantiationIdx": 0,
-                        "partParameter": "pinTrig"
+                        "partParameter": "trigPin"
                     },
                     {
                         "pinInstantiationIdx": 1,
-                        "partParameter": "pinEcho"
+                        "partParameter": "echoPin"
                     }
                 ]
             }
@@ -163,6 +163,90 @@
                 "pinIndices": [
                     1,
                     2
+                ]
+            }
+        ]
+    },
+    "tof": {
+        "visual": {
+            "image": "parts/tof.svg",
+            "width": 200,
+            "height": 160,
+            "pinDistance": 20,
+            "pinLocations": [
+                {
+                    "x": 40.0,
+                    "y": 159
+                },
+                {
+                    "x": 60.0,
+                    "y": 159
+                },
+                {
+                    "x": 80.0,
+                    "y": 159
+                },
+                {
+                    "x": 100.0,
+                    "y": 159
+                }
+            ]
+        },
+        "numberOfPins": 4,
+        "pinDefinitions": [
+            {
+                "target": "threeVolt",
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": "ground",
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": {
+                    "pinInstantiationIdx": 1
+                },
+                "style": "male",
+                "orientation": "-Z"
+            },
+            {
+                "target": {
+                    "pinInstantiationIdx": 0
+                },
+                "style": "male",
+                "orientation": "-Z"
+            }
+        ],
+        "instantiations": [
+            {
+                "kind": "function",
+                "fullyQualifiedName": "fisicabitToF.tofDistance,fisicabitToF.tofSendDistance,fisicabitToF.tofStartPrecision,fisicabitToF.tofCalibrateOffset,fisicabitToF.tofSampleTime,fisicabitToF.tofActualSampleRate,fisicabitToF.tofDetectedModule,fisicabitToF.tofSensorFound",
+                "argumentRoles": [
+                    {
+                        "pinInstantiationIdx": 0,
+                        "partParameter": "sda"
+                    },
+                    {
+                        "pinInstantiationIdx": 1,
+                        "partParameter": "scl"
+                    }
+                ]
+            }
+        ],
+        "assembly": [
+            {
+                "part": true,
+                "pinIndices": [
+                    0,
+                    1
+                ]
+            },
+            {
+                "pinIndices": [
+                    2,
+                    3
                 ]
             }
         ]

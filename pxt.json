@@ -1,7 +1,7 @@
 {
     "name": "fisicabit-usb",
-    "version": "1.3.0",
-    "description": "Extensión micro:bit para fisicabit.com: envío de datos por USB con un solo bloque, sensores internos y externos y ultrasonido HC-SR04 / HY-SRF05 con marcas de tiempo físicas. Para Bluetooth, la extensión FisicaBit BT (rama bluetooth).",
+    "version": "1.2.1",
+    "description": "micro:bit (V2) only. FisicaBit for fisicabit.com: sensors, photogates, precision accelerometer, ultrasonic and ToF distance, data streaming over USB (Bluetooth: fisicabit-bt)",
     "license": "MIT",
     "authors": [
         "FisicaBit"
@@ -13,22 +13,37 @@
     },
     "files": [
         "README.md",
-        "fisicabit_datos.ts",
-        "fisicabit_usb.ts",
-        "fisicabit_ultrasonido.ts",
+        "fisicabit.ts",
+        "kinematics.ts",
+        "data.ts",
+        "serial.ts",
+        "tof.ts",
         "enums.d.ts",
+        "nativeShims.ts",
+        "shims.cpp",
+        "tcs3200.ts",
+        "bme280.ts",
+        "dht11.ts",
+        "ds18b20.ts",
+        "max6675.ts",
+        "ultrasonic.ts",
+        "audioShims.ts",
+        "sound.ts",
+        "hx711.ts",
         "_locales/es/fisicabit-usb-strings.json",
         "_locales/es/fisicabit-usb-jsdoc-strings.json",
-        "_locales/en/fisicabit-usb-strings.json",
-        "_locales/en/fisicabit-usb-jsdoc-strings.json",
         "_locales/pt-BR/fisicabit-usb-strings.json",
         "_locales/pt-BR/fisicabit-usb-jsdoc-strings.json",
         "tutorial-usb.md",
+        "_locales/es/tutorial-bluetooth.md",
+        "tutorial-bluetooth.md",
         "_locales/es/tutorial-usb.md",
         "_locales/pt-BR/tutorial-usb.md",
+        "_locales/pt-BR/tutorial-bluetooth.md",
         "pxtparts.json",
         "parts/hcsr04.svg",
-        "parts/hysrf05.svg"
+        "parts/hysrf05.svg",
+        "parts/tof.svg"
     ],
     "testFiles": [
         "test.ts"
@@ -36,5 +51,8 @@
     "supportedTargets": [
         "microbit"
     ],
-    "preferredEditor": "tsprj"
+    "preferredEditor": "tsprj",
+    "disablesVariants": [
+        "mbdal"
+    ]
 }
