@@ -1,7 +1,7 @@
 {
     "name": "fisicabit-bt",
-    "version": "1.2.0",
-    "description": "FisicaBit con Bluetooth: las categorías FisicaBit USB y FisicaBit BT para enviar datos a fisicabit.com por cable o sin cable. Reemplaza a fisicabit-usb cuando se activa Bluetooth (incompatible con Radio).",
+    "version": "1.2.1",
+    "description": "micro:bit (V2) only. FisicaBit for fisicabit.com with Bluetooth: sensors, photogates, precision accelerometer, ultrasonic and ToF distance, data streaming over USB and Bluetooth LE (replaces fisicabit-usb; incompatible with radio)",
     "license": "MIT",
     "authors": [
         "FisicaBit"
@@ -14,22 +14,38 @@
     },
     "files": [
         "README.md",
-        "fisicabit_datos.ts",
-        "fisicabit_usb.ts",
-        "fisicabit_bt.ts",
+        "fisicabit.ts",
+        "kinematics.ts",
+        "data.ts",
+        "serial.ts",
+        "bluetooth.ts",
+        "tof.ts",
         "enums.d.ts",
+        "nativeShims.ts",
+        "shims.cpp",
+        "tcs3200.ts",
+        "bme280.ts",
+        "dht11.ts",
+        "ds18b20.ts",
+        "max6675.ts",
+        "ultrasonic.ts",
+        "audioShims.ts",
+        "sound.ts",
+        "hx711.ts",
         "_locales/es/fisicabit-bt-strings.json",
         "_locales/es/fisicabit-bt-jsdoc-strings.json",
-        "_locales/en/fisicabit-bt-strings.json",
-        "_locales/en/fisicabit-bt-jsdoc-strings.json",
         "_locales/pt-BR/fisicabit-bt-strings.json",
         "_locales/pt-BR/fisicabit-bt-jsdoc-strings.json",
         "tutorial-usb.md",
+        "_locales/es/tutorial-bluetooth.md",
         "tutorial-bluetooth.md",
         "_locales/es/tutorial-usb.md",
-        "_locales/es/tutorial-bluetooth.md",
         "_locales/pt-BR/tutorial-usb.md",
-        "_locales/pt-BR/tutorial-bluetooth.md"
+        "_locales/pt-BR/tutorial-bluetooth.md",
+        "pxtparts.json",
+        "parts/hcsr04.svg",
+        "parts/hysrf05.svg",
+        "parts/tof.svg"
     ],
     "testFiles": [
         "test.ts"
@@ -38,16 +54,7 @@
         "microbit"
     ],
     "preferredEditor": "tsprj",
-    "yotta": {
-        "configIsJustDefaults": true,
-        "config": {
-            "microbit-dal": {
-                "bluetooth": {
-                    "open": 1,
-                    "whitelist": 0,
-                    "security_level": null
-                }
-            }
-        }
-    }
+    "disablesVariants": [
+        "mbdal"
+    ]
 }
