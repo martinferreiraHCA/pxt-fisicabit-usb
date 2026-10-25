@@ -1,6 +1,6 @@
 {
     "name": "fisicabit-bt",
-    "version": "1.2.3",
+    "version": "1.3.0",
     "description": "micro:bit (V2) only. FisicaBit for fisicabit.com: send data over USB or Bluetooth LE, HC-SR04 / HY-SRF05 ultrasonic distance with physical time stamps (replaces fisicabit-usb; incompatible with radio)",
     "license": "MIT",
     "authors": [
